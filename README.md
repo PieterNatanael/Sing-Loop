@@ -1,14 +1,14 @@
-Privacy Policy
+rivacy Policy
 
-We are committed to protecting your privacy. This privacy policy outlines how we collect, use, and safeguard your personal information in our Sing Loop app.
+We are committed to protecting your privacy. This privacy policy outlines how we collect, use, and safeguard data within our Sing Loop app.
 
 Information Collection:
 
-We do not collect any personal information from users of the Sing Loop app.
+Sing Loop collects data within the app, such as recordings made by users for playback and looping purposes. However, no personal information that identifies individual users is collected.
 
 Data Usage:
 
-Since we do not collect any user data, we do not use or share any personal information with third parties.
+The data collected within Sing Loop, such as recordings, is used solely within the app for playback and looping functionalities. We do not use or share this data outside the app or with third parties.
 
 Contact Us:
 
