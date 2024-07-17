@@ -24,6 +24,7 @@ struct ContentView: View {
             LinearGradient(colors: [Color(#colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)), .clear], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
 
+            
             VStack(spacing: 20) {
                 // App Title and Buttons
                 HStack {
