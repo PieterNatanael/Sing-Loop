@@ -25,6 +25,7 @@ struct ContentView: View {
                 .ignoresSafeArea()
 
             
+            
             VStack(spacing: 20) {
                 // App Title and Buttons
                 HStack {
