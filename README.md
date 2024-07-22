@@ -161,3 +161,16 @@ Nie zbieramy żadnych danych użytkownika za pomocą aplikacji Sing LOOP. Twoja 
 
 Skontaktuj się z nami
 Jeśli masz jakiekolwiek pytania lub obawy dotyczące naszej polityki prywatności, prosimy o kontakt pod adresem pieternatanael@icloud.com
+
+
+
+Vietnam:
+Chính Sách Bảo Mật cho Sing LOOP
+
+Chúng tôi không thu thập bất kỳ dữ liệu người dùng nào thông qua ứng dụng Sing LOOP. Quyền riêng tư của bạn rất quan trọng đối với chúng tôi, và chúng tôi cam kết đảm bảo rằng thông tin của bạn được bảo mật.
+
+Liên Hệ
+
+Nếu bạn có bất kỳ câu hỏi hoặc lo ngại nào về chính sách bảo mật của chúng tôi, vui lòng liên hệ với chúng tôi qua email pieternatanael@icloud.com
+
+Nhà Phát Triển: Pieter Yoshua Natanael
