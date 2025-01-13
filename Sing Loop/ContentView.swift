@@ -102,13 +102,20 @@ struct ContentView: View {
             }
             .onAppear {
                 // Set up audio session
-                do {
-                    try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker])
-                    try AVAudioSession.sharedInstance().setActive(true)
-                } catch {
-                    print("Error setting AVAudioSession category: \(error.localizedDescription)")
+                .onAppear {
+                    // Set up audio session
+                    do {
+                        try AVAudioSession.sharedInstance().setCategory(
+                            .playAndRecord,
+                            mode: .default,
+                            options: [.defaultToSpeaker, .mixWithOthers]
+                        )
+                        try AVAudioSession.sharedInstance().setActive(true)
+                    } catch {
+                        print("Error setting AVAudioSession category: \(error.localizedDescription)")
+                    }
                 }
-            }
+
 
             // Volume Slider Overlay
             if showVolumeSlider {
