@@ -57,12 +57,12 @@ struct ContentView: View {
                         self.startRecording()
                     }
                 }
-                .font(.title2)
+                .font(.title.bold())
                 .padding()
                 .frame(width: 233)
                 .background(isRecording ? Color(#colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1)) : Color.black)
                 .cornerRadius(25)
-                .foregroundColor(.white)
+                .foregroundColor(isRecording ? Color.black : Color.white)
 
                 // Play Button
                 Button(isPlaying ? "Stop" : "Play") {
@@ -85,7 +85,7 @@ struct ContentView: View {
                 Button("Volume") {
                     showVolumeSlider.toggle()
                 }
-                .font(.title2)
+                .font(.title.bold())
                 .padding()
                 .frame(width: 233)
                 .background(Color.white)
@@ -101,16 +101,19 @@ struct ContentView: View {
                 })
             }
             .onAppear {
-                // Set up audio session
                 do {
+                    // Set up the audio session to support simultaneous playback and recording
                     try AVAudioSession.sharedInstance().setCategory(
                         .playAndRecord,
                         mode: .default,
-                        options: [.defaultToSpeaker, .mixWithOthers]
+                        options: [.defaultToSpeaker, .mixWithOthers, .allowBluetooth, .allowBluetoothA2DP]
                     )
+                    
+                    // Activate the session
                     try AVAudioSession.sharedInstance().setActive(true)
+                    
                 } catch {
-                    print("Error setting AVAudioSession category: \(error.localizedDescription)")
+                    print("Error setting AVAudioSession: \(error.localizedDescription)")
                 }
             }
 
@@ -260,55 +263,22 @@ struct ShowExplainView: View {
                 }
                 
                 ZStack {
-//                    Image("threedollar")
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fill)
-//                        .cornerRadius(25)
-//                        .clipped()
-//                        .onTapGesture {
-//                            if let url = URL(string: "https://b33.biz/three-dollar/") {
-//                                UIApplication.shared.open(url)
-//                            }
-//                        }
+
                 }
                 
                 // App Cards
                 VStack {
                     
-//                    Divider().background(Color.gray)
-//                    AppCardView(imageName: "sos", appName: "SOS Light", appDescription: "SOS Light is designed to maximize the chances of getting help in emergency situations.", appURL: "https://apps.apple.com/app/s0s-light/id6504213303")
-//                    Divider().background(Color.gray)
+
 //
+                    AppCardView(imageName: "timetell", appName: "TimeTell", appDescription: "Announce the time every 30 seconds, no more guessing and checking your watch, for time-sensitive tasks.", appURL: "https://apps.apple.com/id/app/loopspeak/id6473384030")
+                    Divider().background(Color.gray)
+
 //
-//                    Divider().background(Color.gray)
-//                    AppCardView(imageName: "temptation", appName: "TemptationTrack", appDescription: "One button to track milestones, monitor progress, stay motivated.", appURL: "https://apps.apple.com/id/app/temptationtrack/id6471236988")
-//                    Divider().background(Color.gray)
-//                    // Add more AppCardViews here if needed
-//                    // App Data
-//
-//
-//                    AppCardView(imageName: "timetell", appName: "TimeTell", appDescription: "Announce the time every 30 seconds, no more guessing and checking your watch, for time-sensitive tasks.", appURL: "https://apps.apple.com/id/app/loopspeak/id6473384030")
-//                    Divider().background(Color.gray)
-//
-//                    AppCardView(imageName: "bodycam", appName: "BODYCam", appDescription: "Record videos effortlessly and discreetly.", appURL: "https://apps.apple.com/id/app/b0dycam/id6496689003")
-//
-//                    Divider().background(Color.gray)
-//
-//                    AppCardView(imageName: "loopspeak", appName: "LOOPSpeak", appDescription: "Type or paste your text, play in loop, and enjoy hands-free narration.", appURL: "https://apps.apple.com/id/app/loopspeak/id6473384030")
-//                    Divider().background(Color.gray)
-//
-//                    AppCardView(imageName: "insomnia", appName: "Insomnia Sheep", appDescription: "Design to ease your mind and help you relax leading up to sleep.", appURL: "https://apps.apple.com/id/app/insomnia-sheep/id6479727431")
-//                    Divider().background(Color.gray)
-//
-//                    AppCardView(imageName: "dryeye", appName: "Dry Eye Read", appDescription: "The go-to solution for a comfortable reading experience, by adjusting font size and color to suit your reading experience.", appURL: "https://apps.apple.com/id/app/dry-eye-read/id6474282023")
-//                    Divider().background(Color.gray)
-//
-//                    AppCardView(imageName: "iprogram", appName: "iProgramMe", appDescription: "Custom affirmations, schedule notifications, stay inspired daily.", appURL: "https://apps.apple.com/id/app/iprogramme/id6470770935")
-//                    Divider().background(Color.gray)
-//
-//                    AppCardView(imageName: "worry", appName: "Worry Bin", appDescription: "A place for worry.", appURL: "https://apps.apple.com/id/app/worry-bin/id6498626727")
-//                    Divider().background(Color.gray)
-                
+                    AppCardView(imageName: "insomnia", appName: "Insomnia Sheep", appDescription: "The ultimate sleep tool.", appURL: "https://apps.apple.com/id/app/insomnia-sheep/id6479727431")
+                    Divider().background(Color.gray)
+
+
                 }
                 Spacer()
                 HStack{
@@ -323,6 +293,8 @@ struct ShowExplainView: View {
                • Press the play button to hear the playback in a loop.
                • Press the play button again to stop playback.
                • Each new recording will overwrite the previous one.
+               • Can record while another music app is running in the background.
+               • Cannot record while playback is active; the playback will stop.
                """)
                .font(.title3)
                .multilineTextAlignment(.leading)
@@ -343,10 +315,14 @@ struct ShowExplainView: View {
                    // Perform confirmation action
                    onConfirm()
                }
-               .font(.title)
+               .frame(maxWidth: .infinity)
                .padding()
-               .cornerRadius(25.0)
+               .background(Color(#colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)))
+               .foregroundColor(.white)
+               .font(.title3.bold())
+               .cornerRadius(10)
                .padding()
+               .shadow(color: Color.white.opacity(0.12), radius: 3, x: 3, y: 3)
            }
            .padding()
            .cornerRadius(15.0)
