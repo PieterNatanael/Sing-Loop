@@ -63,6 +63,23 @@ struct ContentView: View {
                 .background(isRecording ? Color(#colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1)) : Color.black)
                 .cornerRadius(25)
                 .foregroundColor(isRecording ? Color.black : Color.white)
+                .background(
+                    RadialGradient(
+                        gradient: Gradient(colors: [
+                            Color(#colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 1)),
+                            Color(#colorLiteral(red: 0.4756349325, green: 0.4756467342, blue: 0.4756404161, alpha: 1))
+                        ]),
+                        center: .topLeading,
+                        startRadius: 10,
+                        endRadius: 400
+                    )
+                )
+                .cornerRadius(25)
+                .shadow(color: Color.black.opacity(0.4), radius: 10, x: 5, y: 5) // Shadow for depth
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(Color.black.opacity(0.8), lineWidth: 2) // Optional border
+                )
 
                 // Play Button
                 Button(isPlaying ? "Stop" : "Play") {
@@ -78,6 +95,23 @@ struct ContentView: View {
                 .background(isPlaying ? Color.red : Color.red)
                 .cornerRadius(25)
                 .foregroundColor(.white)
+                .background(
+                    RadialGradient(
+                        gradient: Gradient(colors: [
+                            Color(#colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 1)),
+                            Color(#colorLiteral(red: 0.4756349325, green: 0.4756467342, blue: 0.4756404161, alpha: 1))
+                        ]),
+                        center: .topLeading,
+                        startRadius: 10,
+                        endRadius: 400
+                    )
+                )
+                .cornerRadius(25)
+                .shadow(color: Color.black.opacity(0.4), radius: 10, x: 5, y: 5) // Shadow for depth
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(Color.black.opacity(0.8), lineWidth: 2) // Optional border
+                )
 
 //                Spacer()
 
@@ -91,6 +125,23 @@ struct ContentView: View {
                 .background(Color.white)
                 .cornerRadius(25)
                 .foregroundColor(.black)
+                .background(
+                    RadialGradient(
+                        gradient: Gradient(colors: [
+                            Color(#colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 1)),
+                            Color(#colorLiteral(red: 0.4756349325, green: 0.4756467342, blue: 0.4756404161, alpha: 1))
+                        ]),
+                        center: .topLeading,
+                        startRadius: 10,
+                        endRadius: 400
+                    )
+                )
+                .cornerRadius(25)
+                .shadow(color: Color.black.opacity(0.4), radius: 10, x: 5, y: 5) // Shadow for depth
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(Color.black.opacity(0.8), lineWidth: 2) // Optional border
+                )
 
                 Spacer()
             }
@@ -286,7 +337,7 @@ struct ShowExplainView: View {
                         .font(.title.bold())
                     Spacer()
                 }
-               
+               //app information
                Text("""
                • Press the record button to start recording sound.
                • Press the record button again to stop recording.
@@ -315,14 +366,29 @@ struct ShowExplainView: View {
                    // Perform confirmation action
                    onConfirm()
                }
+               .font(.title.bold())
+               .padding()
                .frame(maxWidth: .infinity)
-               .padding()
-               .background(Color(#colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)))
-               .foregroundColor(.white)
-               .font(.title3.bold())
-               .cornerRadius(10)
-               .padding()
-               .shadow(color: Color.white.opacity(0.12), radius: 3, x: 3, y: 3)
+               .background(Color.red)
+               .cornerRadius(25)
+               .foregroundColor(.black)
+               .background(
+                   RadialGradient(
+                       gradient: Gradient(colors: [
+                           Color(#colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 1)),
+                           Color(#colorLiteral(red: 0.4756349325, green: 0.4756467342, blue: 0.4756404161, alpha: 1))
+                       ]),
+                       center: .topLeading,
+                       startRadius: 10,
+                       endRadius: 400
+                   )
+               )
+               .cornerRadius(25)
+               .shadow(color: Color.black.opacity(0.4), radius: 10, x: 5, y: 5) // Shadow for depth
+               .overlay(
+                   RoundedRectangle(cornerRadius: 25)
+                       .stroke(Color.black.opacity(0.8), lineWidth: 2) // Optional border
+               )
            }
            .padding()
            .cornerRadius(15.0)
