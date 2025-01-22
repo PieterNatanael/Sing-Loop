@@ -11,7 +11,7 @@ import SwiftUI
 struct Sing_LoopApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainAppView()
         }
     }
 }
