@@ -9,6 +9,8 @@
 import SwiftUI
 import AVFoundation
 
+
+// Main App View for Audio Recording and Playback
 struct ContentView: View {
     // MARK: - State Properties
     @State private var audioRecorder: AVAudioRecorder?
